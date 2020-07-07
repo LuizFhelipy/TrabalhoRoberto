@@ -1,0 +1,65 @@
+package dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import modal.Candidatos;
+import utils.HibernateUtil;
+
+public class CandidatosDAO {
+
+	public void getAllProjects() {
+		EntityManager em = HibernateUtil.getEntityManager();
+		String ql = "select p from project p";
+		TypedQuery<Candidatos> query = em.createQuery(ql, Project.class);
+		List<Project> projects = query.getResultList();
+		System.out.println("projetcs: " + projects);
+
+	}
+
+	public void getProjectById(Integer id) {
+		EntityManager em = HibernateUtil.getEntityManager();
+		String ql = "select p from project p where p.id_rep = :id";
+		TypedQuery<Project> query = em.createQuery(ql, Project.class);
+		query.setParameter("id", id);
+		Project repositories = query.getSingleResult();
+		System.out.println("Project por id: " + repositories);
+	}
+
+	public void deleteProject(Integer id) {
+		EntityManager em = HibernateUtil.getEntityManager();
+		Project proj = em.find(Project.class, id);
+		if (proj != null) {
+			em.getTransaction().begin();
+			em.remove(proj);
+			em.getTransaction().commit();
+		} else {
+			System.out.println("Project " + id + " não encontrado.");
+		}
+	}
+
+	public void insetNewProject(Project proj) {
+		EntityManager em = HibernateUtil.getEntityManager();
+		em.getTransaction().begin();
+		em.persist(proj);
+		em.getTransaction().commit();
+		System.out.println("Valor gerado pelo insert na tabela Project: " + proj.getIdProject());
+
+	}
+
+	public void updateProject(Project proj) {
+		EntityManager em = HibernateUtil.getEntityManager();
+
+		Project objCargo = em.find(Project.class, proj.getIdProject());
+		if (objCargo != null) {
+			em.getTransaction().begin();
+			em.merge(proj);
+			em.getTransaction().commit();
+		} else {
+			System.out.println("Project " + proj.getIdProject() + " não encontrado.");
+		}
+	}
+
+}

@@ -1,0 +1,5 @@
+package br.edu.univas.utils;
+
+public class HibernateUtil {
+
+}

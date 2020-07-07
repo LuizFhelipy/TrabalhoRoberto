@@ -1,0 +1,90 @@
+package br.edu.univas.entities;
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vaga")
+public class vaga implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="vagaSeqGen")
+    @SequenceGenerator(name="vagaSeqGen", sequenceName="SEQ_VAGA", allocationSize=1)
+    private Integer id_vaga;
+
+    @Column(name="nome_candidato")
+    private String  nome_vaga;
+
+    @Column(name="experiencia")
+    private String experiencia;
+
+    @Column(name="empresa")
+    private String empresa;
+    
+    @Column(name="local")
+    private String local;
+    
+    @Column(name="data_vaga")
+    private Date data_vaga;
+
+	public Integer getId_vaga() {
+		return id_vaga;
+	}
+
+	public void setId_vaga(Integer id_vaga) {
+		this.id_vaga = id_vaga;
+	}
+
+	public String getNome_vaga() {
+		return nome_vaga;
+	}
+
+	public void setNome_vaga(String nome_vaga) {
+		this.nome_vaga = nome_vaga;
+	}
+
+	public String getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(String experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public Date getData_vaga() {
+		return data_vaga;
+	}
+
+	public void setData_vaga(Date data_vaga) {
+		this.data_vaga = data_vaga;
+	}
+}

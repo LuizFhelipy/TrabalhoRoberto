@@ -1,0 +1,78 @@
+package dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import modal.Vaga;
+import utils.HibernateUtil;
+
+public class VagaDAO {
+
+	public void getAllvaga() {
+		EntityManager em = HibernateUtil.getEntityManager();
+
+		String ql = "select r from vaga r";
+
+		TypedQuery<Vaga> query = em.createQuery(ql, Vaga.class);
+
+		List<Vaga> vaga = query.getResultList();
+
+		System.out.println("Repositórios: " + vaga);
+
+	}
+
+	public void getvagaById(Integer id) {
+		EntityManager em = HibernateUtil.getEntityManager();
+		String ql = "select r from vaga r where r.id_rep = :id";
+
+		TypedQuery<Vaga> query = em.createQuery(ql, Vaga.class);
+		query.setParameter("id", id);
+
+		Vaga vaga = query.getSingleResult();
+
+		System.out.println("Repositório por id: " + vaga);
+	}
+
+	public void deletevaga(Integer id) {
+		EntityManager em = HibernateUtil.getEntityManager();
+		Vaga vaga = em.find(Vaga.class, id);
+		if (vaga != null) {
+			em.getTransaction().begin();
+			em.remove(vaga);
+			em.getTransaction().commit();
+		} else {
+			System.out.println("Repositório " + id + " não encontrado.");
+		}
+	}
+
+	public void insetNewvaga(Vaga rep) {
+		EntityManager em = HibernateUtil.getEntityManager();
+
+		em.getTransaction().begin();
+		em.persist(rep);
+		em.getTransaction().commit();
+
+		System.out.println("Valor gerado pelo insert na tabela vaga: " + rep.getIdvaga());
+
+	}
+
+	public void updatevaga(vaga rep) {
+		EntityManager em = HibernateUtil.getEntityManager();
+
+		vaga objCargo = em.find(vaga.class, rep.getIdvaga());
+		if (objCargo != null) {
+			em.getTransaction().begin();
+			em.merge(rep);
+			em.getTransaction().commit();
+		} else {
+			System.out.println("vaga " + rep.getIdvaga() + " não encontrado.");
+		}
+	}
+
+}package dao;
+
+public class VagaDAO {
+
+}

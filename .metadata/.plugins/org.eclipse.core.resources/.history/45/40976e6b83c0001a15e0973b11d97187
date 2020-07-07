@@ -1,0 +1,33 @@
+package br.edu.univas.entities;
+import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vaga")
+public class vaga implements Serializable{
+	@Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="vagaSeqGen")
+    @SequenceGenerator(name="vagaSeqGen", sequenceName="SEQ_VAGA", allocationSize=1)
+    private Integer id_vaga;
+
+    @Column(name="nome_candidato")
+    private String  nome_candidato;
+
+    @Column(name="curriculo")
+    private String curriculo;
+
+    @Column(name="endereco")
+    private String endereco;
+
+    @Column(name="id_vaga")
+    private Integer id_vaga;
+}

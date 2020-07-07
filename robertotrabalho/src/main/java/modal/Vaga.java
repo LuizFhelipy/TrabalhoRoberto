@@ -1,7 +1,6 @@
 package modal;
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.Set;
+import java.util.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +24,7 @@ public class Vaga implements Serializable{
     @Column(name = "id_vaga")
     private Integer id_vaga;
 
-    @Column(name="nome_candidato")
+    @Column(name="nome_vaga")
     private String  nome_vaga;
 
     @Column(name="experiencia")

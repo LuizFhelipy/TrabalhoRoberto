@@ -58,7 +58,7 @@ public class VagaDAO {
 
 	}
 
-	public void updatevaga(Vaga vaga) {
+	public void updateVaga(Vaga vaga) {
 		EntityManager em = HibernateUtil.getEntityManager();
 
 		Vaga objCargo = em.find(Vaga.class, vaga.getId_vaga());

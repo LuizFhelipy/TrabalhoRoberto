@@ -11,8 +11,8 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"></property>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/clube_associados"></property>
-            <property name="javax.persistence.jdbc.user" value="postgress"></property>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/luiz"></property>
+            <property name="javax.persistence.jdbc.user" value="postgres"></property>
             <property name="javax.persistence.jdbc.password" value="root"></property>
         </properties>
     </persistence-unit>

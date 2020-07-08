@@ -23,10 +23,10 @@ public class Candidatos implements Serializable{
 
 	@Id
     @GeneratedValue
-    @Column(name = "id_candidato")
+    @Column(name = "id_candidatos")
     private Integer id_candidato;
 
-    @Column(name="nome_candidato")
+    @Column(name="nome_candidatos")
     private String  nome_candidato;
 
     @Column(name="curriculo")

@@ -1,0 +1,24 @@
+package testscandidatos;
+
+
+import dao.CandidatosDAO;
+import modal.Candidatos;
+import modal.Vaga;
+
+public class InsertCandidato {
+	public static void main(String[] args) {
+		Candidatos candidato = new Candidatos();
+		CandidatosDAO candidatodao = new CandidatosDAO();
+		
+		Vaga vaga = new Vaga();
+		vaga.setId_vaga(1);
+		
+		
+		candidato.setNome_candidato("João");
+		candidato.setCurriculo("Trabalhou na empresa tal tal tal");
+		candidato.setEndereco("Rua parara pororo");
+		candidato.setVaga(vaga);
+		
+		candidatodao.insertNewCandidato(candidato);
+		}
+}

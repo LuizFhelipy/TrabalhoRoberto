@@ -1,0 +1,46 @@
+package testscandidatos;
+
+
+import dao.CandidatosDAO;
+import modal.Candidatos;
+import modal.Vaga;
+
+public class candidatotests {
+	public static void main(String[] args) {
+		
+		}
+	public static void testinsertcandidato() {
+		//teste de inserção
+		Candidatos candidato = new Candidatos();
+		CandidatosDAO candidatodao = new CandidatosDAO();
+		Vaga vaga = new Vaga();
+		
+		candidato.setNome_candidato("João");
+		candidato.setCurriculo("Trabalhou na empresa tal tal tal");
+		candidato.setEndereco("Rua parara pororo");
+		vaga.setId_vaga(2);
+		candidato.setVaga(vaga);
+		
+		candidatodao.insertNewCandidato(candidato);
+	}
+	public static void testdeletecandidato() {
+		CandidatosDAO candidatodao = new CandidatosDAO();
+		candidatodao.deleteCandidato(6);
+	}
+	public static void testupdatecandidato() {
+		Candidatos candidato = new Candidatos();
+		CandidatosDAO candidatodao = new CandidatosDAO();
+		Vaga vaga = new Vaga();
+		candidato.setNome_candidato("José");
+		candidato.setCurriculo("Trabalhou tal tal tal");
+		candidato.setEndereco("Rua pororo");
+		vaga.setId_vaga(2);
+		candidato.setVaga(vaga);
+		candidatodao.updateCandidato(candidato);
+	}
+	public static void testselectcandidato() {
+		CandidatosDAO candidatodao = new CandidatosDAO();
+		candidatodao.getAllCandidatos();
+	}
+  pedDAO.selectAllPedidos();
+}

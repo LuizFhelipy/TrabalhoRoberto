@@ -4,4 +4,7 @@
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="modal.Candidatos"/>
+<fullyQualifiedTypeName name="dao.VagaDAO"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="modal.Vaga"/>
 </qualifiedTypeNameHistroy>

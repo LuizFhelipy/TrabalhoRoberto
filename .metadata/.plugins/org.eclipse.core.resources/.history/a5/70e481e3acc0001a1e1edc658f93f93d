@@ -1,0 +1,18 @@
+package testscandidatos;
+
+import java.util.Date;
+
+import dao.CandidatosDAO;
+import modal.Candidatos;
+
+public class InsertCandidato {
+	public static void main(String[] args) {
+		Candidatos candidato = new Candidatos();
+		CandidatosDAO candidatodao = new CandidatosDAO();
+		
+		candidato.setNome_candidato("João");
+		candidato.setCurriculo("Trabalhou na empresa tal tal tal");
+		candidato.setEndereco("Rua parara pororo");
+		candidato.setVaga(1);
+		}
+}

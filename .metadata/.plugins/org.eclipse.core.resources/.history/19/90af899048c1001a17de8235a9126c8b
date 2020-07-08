@@ -1,0 +1,54 @@
+package testsvaga;
+
+import java.util.Date;
+
+import dao.CandidatosDAO;
+import dao.VagaDAO;
+import modal.Candidatos;
+import modal.Vaga;
+public class VagaTestes {
+	public static void main(String[] args) {
+	
+	
+	//teste das funções
+			//testinsertcandidato();
+			}
+		public static void testinsertcandidato() {
+			//teste de inserção
+			Vaga vaga = new Vaga();
+			VagaDAO vagadao = new VagaDAO();
+			
+			vaga.setData_vaga(new Date());
+			vaga.setEmpresa("Teste");
+			vaga.setExperiencia("Trabalhar 5 anos");
+			vaga.setNome_vaga("Analista de Sistemas");
+			vaga.setLocal("São Paulo");
+			
+			vagadao.insertNewVaga(vaga);
+		}
+		public static void testdeletecandidato() {
+			//teste de deleção
+			CandidatosDAO candidatodao = new CandidatosDAO();
+			candidatodao.deleteCandidato(6);
+		}
+		public static void testupdatecandidato() {
+			//teste de update
+			Candidatos candidato = new Candidatos();
+			CandidatosDAO candidatodao = new CandidatosDAO();
+			Vaga vaga = new Vaga();
+			candidato.setNome_candidato("José");
+			candidato.setCurriculo("Trabalhou tal tal tal");
+			candidato.setEndereco("Rua pororo");
+			vaga.setId_vaga(2);
+			candidato.setVaga(vaga);
+			candidatodao.updateCandidato(candidato);
+		}
+		public static void testselectcandidato() {
+			//teste de select
+			CandidatosDAO candidatodao = new CandidatosDAO();
+			candidatodao.getAllCandidatos();
+		}
+	
+	
+	}
+}
